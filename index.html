@@ -241,7 +241,7 @@
               </div>
               <div class="event">
                 <strong>Resepsi</strong>
-                <div><small id="resepsiDate">Sabtu, 13 Desember 2025 — 10:00 WIB</small></div>
+                <div><small id="resepsiDate">Sabtu, 13 Desember 2025 — 10:00 - Selesai</small></div>
               </div>
             </div>
           </div>
@@ -249,16 +249,27 @@
           <div id="galeri" class="card section">
             <h3>Galeri</h3>
             <div class="gallery">
-              <img onclick="openLightbox(this.src)" src="https://via.placeholder.com/600x400?text=Photo+1">
-              <img onclick="openLightbox(this.src)" src="https://via.placeholder.com/600x400?text=Photo+2">
-              <img onclick="openLightbox(this.src)" src="https://via.placeholder.com/600x400?text=Photo+3">
-              <img onclick="openLightbox(this.src)" src="https://via.placeholder.com/600x400?text=Photo+4">
+              <img onclick="openLightbox(this.src)" src="img/g1">
+              <img onclick="openLightbox(this.src)" src="img/g2">
+              <img onclick="openLightbox(this.src)" src="img/g3">
+              <img onclick="openLightbox(this.src)" src="img/g4">
             </div>
           </div>
   
           <div id="ucapan" class="card section">
             <h3>Ucapan & RSVP</h3>
             <!-- area form kamu tetap sama -->
+            <form id="rsvpForm">
+              <input type="text" id="guestName" placeholder="Nama lengkap" required>
+              <input type="text" id="guestFrom" placeholder="Kota (mis: Bandung)" required>
+              <select id="attendance" required>
+                <option value="">Pilih kehadiran</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
+              </select>
+              <textarea id="message" rows="3" placeholder="Ucapan (opsional)"></textarea>
+              <button type="submit">Kirim RSVP</button>
+            </form>
             <!-- ... (tidak diubah) ... -->
             <div style="margin-top:8px">
               <small>Catatan: Data RSVP disimpan lokal di browser.</small>
@@ -267,7 +278,7 @@
         </section>
   
         <aside>
-          <div id="lokasi" class="card section">
+          <div id="lokasi" class="card">
             <h3>Lokasi</h3>
             <div class="map">
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7907.575432456785!2d111.457086!3d-7.705915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7997f38662032d%3A0x4bd569fb81c8a6b7!2sWarung%20Rujak%20Bu%20Mis!5e0!3m2!1sid!2sid!4v1762446860336!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
