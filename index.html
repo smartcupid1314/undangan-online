@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Undangan Pernikahan - [Nama Mempelai]</title>
   <style>
     :root{--accent:#8b5cf6;--muted:#777;--bg:#faf9f8}
@@ -17,7 +18,7 @@
     nav{display:flex;gap:10px;justify-content:center;margin-top:12px}
     nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--accent);font-weight:600}
     .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
-    .card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 6px 14px rgba(11,15,30,0.04)}
+    .card {width: 90%;max-width: 500px;margin: 18px auto;}
     .mempelai{display:flex;gap:12px;align-items:center}
     .avatar{width:88px;height:88px;border-radius:10px;object-fit:cover}
     .meta small{color:var(--muted)}
@@ -30,35 +31,39 @@
     form button{background:var(--accent);color:white;border:0;font-weight:700}
     footer{text-align:center;color:var(--muted);margin:28px 0}
     @media (max-width:880px){.grid{grid-template-columns:1fr}.gallery img{width:100%}}
+    #cover {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #000;
+    color: #fff;
+    padding: 20px;
+    }
+    
+    #cover button {
+      padding: 12px 24px;
+      background: #fff;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
-  <div id="cover" style="
-    width:100%;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:#000;
-    color:#fff;
-    padding:20px;
-  ">
+  
+  <div id="cover">
     <h2>Undangan Pernikahan</h2>
     <h1 style="margin:0">Lusiana & Agus</h1>
     <p style="margin:10px 0 20px">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-
-    <button onclick="masukUndangan()" style="
-      padding:12px 24px;
-      font-size:16px;
-      border:none;
-      background:#ffffff;
-      color:#000;
-      border-radius:6px;
-      cursor:pointer;
-    ">Buka Undangan</button>
+    <button onclick="masukUndangan()">Buka Undangan</button>
   </div>
+  
   <div id="content" style="display:none">
     <header>
       <div class="container">
