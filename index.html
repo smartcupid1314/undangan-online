@@ -145,11 +145,17 @@
 
         <div class="card" style="margin-top:12px;text-align:center">
           <h4>Musik (opsional)</h4>
-          <audio id="bgm" loop>
+          <audio id="bgm" autoplay loop muted>
             <source src="music/background.mp3" type="audio/mpeg">
           </audio>
           <button onclick="document.getElementById('bgm').play()">Play Musik</button>
           <button onclick="document.getElementById('bgm').pause()">Pause</button>
+          <script>
+            // Unmute otomatis setelah user tap layar
+            document.addEventListener('click', () => {
+              document.getElementById('bgm').muted = false;
+            }, { once: true });
+          </script>
         </div>
 
         <div class="card" style="margin-top:12px;text-align:center">
