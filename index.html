@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Undangan Pernikahan - [Nama Mempelai]</title>
+  <style>
+    :root{--accent:#8b5cf6;--muted:#777;--bg:#faf9f8}
+    *{box-sizing:border-box}
+    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:#111}
+    header{background:linear-gradient(90deg,rgba(0,0,0,.03),rgba(255,255,255,.02));padding:28px 18px;text-align:center}
+    .container{max-width:920px;margin:20px auto;padding:0 18px}
+    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+    .hero .cover{padding:28px;border-radius:14px;background:#fff;box-shadow:0 6px 18px rgba(11,15,30,0.06)}
+    h1{margin:0;font-size:28px}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    nav{display:flex;gap:10px;justify-content:center;margin-top:12px}
+    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--accent);font-weight:600}
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    .card{background:#fff;border-radius:12px;padding:14px;box-shadow:0 6px 14px rgba(11,15,30,0.04)}
+    .mempelai{display:flex;gap:12px;align-items:center}
+    .avatar{width:88px;height:88px;border-radius:10px;object-fit:cover}
+    .meta small{color:var(--muted)}
+    .timeline{display:flex;flex-direction:column;gap:10px}
+    .event{padding:12px;border-radius:10px;border:1px solid #f0f0f0}
+    .map{height:260px;border-radius:10px;overflow:hidden}
+    .gallery{display:flex;gap:8px;flex-wrap:wrap}
+    .gallery img{width:calc(50% - 8px);border-radius:8px}
+    form input,form textarea,form button{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6}
+    form button{background:var(--accent);color:white;border:0;font-weight:700}
+    footer{text-align:center;color:var(--muted);margin:28px 0}
+    @media (max-width:880px){.grid{grid-template-columns:1fr}.gallery img{width:100%}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1 id="pageTitle">[Nama Mempelai]</h1>
+      <p class="lead" id="greeting">Undangan pernikahan</p>
+      <nav>
+        <a href="#mempelai">Mempelai</a>
+        <a href="#acara">Acara</a>
+        <a href="#lokasi">Lokasi</a>
+        <a href="#galeri">Galeri</a>
+        <a href="#ucapan">Ucapan</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="cover card">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <h2 id="headline">Kepada: <span id="kepadaText">Tamu Terhormat</span></h2>
+            <p class="lead">Dengan hormat, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
+          </div>
+          <div style="text-align:right">
+            <small id="dateSmall">Sabtu, 01 Januari 2026</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <section>
+        <div id="mempelai" class="card">
+          <h3>Mempelai</h3>
+          <div class="mempelai">
+            <img id="fotoPria" class="avatar" src="https://via.placeholder.com/200x200?text=Pria" alt="Foto Mempelai Pria">
+            <div class="meta">
+              <strong id="namaPria">Nama Pria</strong>
+              <div><small id="ketPria">Putra dari Bapak X & Ibu Y</small></div>
+            </div>
+            <div style="margin-left:12px"></div>
+            <img id="fotoWanita" class="avatar" src="https://via.placeholder.com/200x200?text=Wanita" alt="Foto Mempelai Wanita">
+            <div class="meta">
+              <strong id="namaWanita">Nama Wanita</strong>
+              <div><small id="ketWanita">Putri dari Bapak A & Ibu B</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="acara" class="card" style="margin-top:12px">
+          <h3>Acara</h3>
+          <div class="timeline">
+            <div class="event">
+              <strong>Akad Nikah</strong>
+              <div><small id="akadDate">Minggu, 10 Januari 2026 — 09:00 WIB</small></div>
+            </div>
+            <div class="event">
+              <strong>Resepsi</strong>
+              <div><small id="resepsiDate">Minggu, 10 Januari 2026 — 11:00 WIB</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="galeri" class="card" style="margin-top:12px">
+          <h3>Galeri</h3>
+          <div class="gallery">
+            <img src="https://via.placeholder.com/600x400?text=Photo+1" alt="photo1">
+            <img src="https://via.placeholder.com/600x400?text=Photo+2" alt="photo2">
+            <img src="https://via.placeholder.com/600x400?text=Photo+3" alt="photo3">
+            <img src="https://via.placeholder.com/600x400?text=Photo+4" alt="photo4">
+          </div>
+        </div>
+
+        <div id="ucapan" class="card" style="margin-top:12px">
+          <h3>Ucapan & RSVP</h3>
+          <form id="rsvpForm">
+            <input type="text" id="guestName" placeholder="Nama lengkap" required>
+            <input type="text" id="guestFrom" placeholder="Kota (mis: Bandung)" required>
+            <select id="attendance" required>
+              <option value="">Pilih kehadiran</option>
+              <option value="Hadir">Hadir</option>
+              <option value="Tidak Hadir">Tidak Hadir</option>
+            </select>
+            <textarea id="message" rows="3" placeholder="Ucapan (opsional)"></textarea>
+            <button type="submit">Kirim RSVP</button>
+          </form>
+          <div style="margin-top:8px">
+            <small>Catatan: Data RSVP disimpan lokal di browser. Untuk menyimpan ke server, ganti variabel <code>RSVP_ENDPOINT</code> di script.</small>
+          </div>
+          <div style="margin-top:8px">
+            <button id="downloadRsvps">Download Data RSVP (CSV)</button>
+          </div>
+          <div style="margin-top:8px">
+            <h4>Rekening / Kado</h4>
+            <div><strong>BCA</strong> - 1234567890 a.n. Nama Mempelai</div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div id="lokasi" class="card">
+          <h3>Lokasi</h3>
+          <div class="map" id="mapWrap">
+            <!-- Ganti src iframe di bawah dengan link Google Maps lokasi kamu -->
+            <iframe id="mapFrame" src="https://www.google.com/maps?q=Bandung&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+          <div style="margin-top:8px">
+            <a id="openMaps" href="#" target="_blank">Buka di Google Maps</a>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px;text-align:center">
+          <h4>Musik (opsional)</h4>
+          <audio id="bgMusic" controls loop>
+            <source src="" type="audio/mpeg">
+            Browser kamu tidak mendukung audio.
+          </audio>
+          <div style="margin-top:8px">
+            <button id="playToggle">Play/Pause</button>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:12px;text-align:center">
+          <h4>Detail Cepat</h4>
+          <div><small id="quickDate">10 Jan 2026</small></div>
+          <div><small id="quickPlace">Gedung Contoh, Bandung</small></div>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <small>Terima kasih atas doa dan kehadiran Anda.</small>
+    </footer>
+  </main>
+
+  <script>
+    /***********************************************
+     * CONFIG - ganti nilai berikut sesuai keperluan
+     ***********************************************/
+    const CONFIG = {
+      title: '[Nama Mempelai]',
+      namaPria: 'Hadi',
+      namaWanita: 'Ayu',
+      fotoPria: 'https://via.placeholder.com/400x400?text=Hadi',
+      fotoWanita: 'https://via.placeholder.com/400x400?text=Ayu',
+      akad: 'Minggu, 10 Januari 2026 — 09:00 WIB',
+      resepsi: 'Minggu, 10 Januari 2026 — 11:00 WIB',
+      tanggalRingkas: '10 Jan 2026',
+      tempatRingkas: 'Gedung Contoh, Bandung',
+      mapsLink: 'https://www.google.com/maps?q=Bandung',
+      musicUrl: '', // taruh link mp3 jika mau
+      bankInfo: 'BCA - 1234567890 a.n. Hadi & Ayu',
+      RSVP_ENDPOINT: '' // Jika mau kirim ke server: masukkan URL API endpoint di sini (Google Apps Script / Formspree / servermu sendiri)
+    };
+
+    // Inisialisasi konten dari CONFIG
+    document.getElementById('pageTitle').textContent = CONFIG.title;
+    document.getElementById('namaPria').textContent = CONFIG.namaPria;
+    document.getElementById('namaWanita').textContent = CONFIG.namaWanita;
+    document.getElementById('fotoPria').src = CONFIG.fotoPria;
+    document.getElementById('fotoWanita').src = CONFIG.fotoWanita;
+    document.getElementById('akadDate').textContent = CONFIG.akad;
+    document.getElementById('resepsiDate').textContent = CONFIG.resepsi;
+    document.getElementById('quickDate').textContent = CONFIG.tanggalRingkas;
+    document.getElementById('quickPlace').textContent = CONFIG.tempatRingkas;
+    document.getElementById('mapFrame').src = CONFIG.mapsLink.replace('/maps','/maps') + '&output=embed';
+    document.getElementById('openMaps').href = CONFIG.mapsLink;
+    document.getElementById('bgMusic').querySelector('source').src = CONFIG.musicUrl;
+    document.querySelector('#ucapan .card');
+    document.querySelector('#ucapan');
+
+    // Parsing query string untuk menampilkan "kepada". Contoh: ?templatecoba=1/kepada:Budi%20dan%20Ani-Bandung
+    (function parseKepada(){
+      const q = decodeURIComponent(location.search + location.hash);
+      // cari pola 'kepada:...'
+      const match = q.match(/kepada:([^\-&?]+)/i);
+      if(match && match[1]){
+        const val = match[1].replace(/\+/g,' ');
+        document.getElementById('kepadaText').textContent = val;
+        document.getElementById('headline').style.fontSize='20px';
+      }
+    })();
+
+    // RSVP handler: default menyimpan ke localStorage. Jika RSVP_ENDPOINT diisi, script akan mengirim POST ke URL tersebut.
+    const form = document.getElementById('rsvpForm');
+    const STORAGE_KEY = 'undangan_rsvps';
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const data = {
+        name: document.getElementById('guestName').value.trim(),
+        from: document.getElementById('guestFrom').value.trim(),
+        attendance: document.getElementById('attendance').value,
+        message: document.getElementById('message').value.trim(),
+        time: new Date().toISOString()
+      };
+
+      // Simpan lokal
+      const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      existing.push(data);
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+
+      // Jika endpoint diset, kirim POST
+      if(CONFIG.RSVP_ENDPOINT){
+        try{
+          await fetch(CONFIG.RSVP_ENDPOINT, {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(data)
+          });
+        }catch(err){
+          console.warn('Gagal kirim ke endpoint:', err);
+        }
+      }
+
+      alert('Terima kasih, RSVP Anda telah tercatat.');
+      form.reset();
+    });
+
+    // Download CSV
+    document.getElementById('downloadRsvps').addEventListener('click', ()=>{
+      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+      if(!data.length){return alert('Belum ada data RSVP.');}
+      const rows = [Object.keys(data[0]).join(',')].concat(data.map(r=>Object.values(r).map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')));
+      const csv = rows.join('\n');
+      const blob = new Blob([csv], {type:'text/csv'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a'); a.href = url; a.download = 'rsvps.csv'; a.click(); URL.revokeObjectURL(url);
+    });
+
+    // Play toggle musik
+    document.getElementById('playToggle').addEventListener('click', ()=>{
+      const audio = document.getElementById('bgMusic');
+      if(audio.paused) audio.play(); else audio.pause();
+    });
+
+    // Jika URL hash menyertakan data awal (mis: #kepada:Nama), parse juga
+    (function parseHash(){
+      const h = decodeURIComponent(location.hash);
+      const m = h.match(/kepada:([^\-]+)/i);
+      if(m && m[1]) document.getElementById('kepadaText').textContent = m[1];
+    })();
+
+    // Catatan cepat untuk deploy: simpan file ini sebagai index.html, lalu host di GitHub Pages / Netlify / Vercel / Webhost biasa.
+  </script>
+</body>
+</html>
