@@ -86,6 +86,7 @@
     footer{text-align:center;color:var(--muted);margin:28px 0}
     @media (max-width:880px){.grid{grid-template-columns:1fr}.gallery img{width:100%}}
     .section{max-width:600px;width:90%;margin:0 auto 40px auto;text-align:center;}
+    .font-love{font-family:'MyFont';font-size: clamp(28px, 7vw, 64px);}
 
     /* LIGHTBOX */
     #lightbox{
@@ -159,7 +160,7 @@
       backdrop-filter:blur(4px);
     }
     
-    /* Section penutup */
+    /* Section penutup <h1 style="font-family:'MyFont';margin:0">Lusiana & Agus</h1> */
     #penutup{
       text-align:center;
       padding:60px 20px;
@@ -171,10 +172,10 @@
 </head>
 <body>
   
-  <!-- COVER -->
+  <!-- COVER --> 
   <div id="cover">
     <h2>Undangan Pernikahan</h2>
-    <h1 style="font-family:'MyFont';margin:0">Lusiana & Agus</h1>
+    <h1 class="font-love">Lusiana & Agus</h1>
     <p style="margin:10px 0 20px">Kepada Yth. Bapak/Ibu/Saudara/i</p>
     <button onclick="masukUndangan()">Buka Undangan</button>
   </div>
@@ -250,10 +251,10 @@
           <div id="galeri" class="card section">
             <h3>Galeri</h3>
             <div class="gallery">
-              <img onclick="openLightbox(this.src)" src="img/g1">
-              <img onclick="openLightbox(this.src)" src="img/g2">
-              <img onclick="openLightbox(this.src)" src="img/g3">
-              <img onclick="openLightbox(this.src)" src="img/g4">
+              <img onclick="openLightbox(this.src)" src="img/g1.jpg">
+              <img onclick="openLightbox(this.src)" src="img/g2.jpg">
+              <img onclick="openLightbox(this.src)" src="img/g3.jpg">
+              <img onclick="openLightbox(this.src)" src="img/g4.jpg">
             </div>
           </div>
   
