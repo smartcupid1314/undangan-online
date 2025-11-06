@@ -84,6 +84,7 @@
     form button{background:var(--accent);color:white;border:0;font-weight:700}
     footer{text-align:center;color:var(--muted);margin:28px 0}
     @media (max-width:880px){.grid{grid-template-columns:1fr}.gallery img{width:100%}}
+    .section{max-width:600px;width:90%;margin:0 auto 40px auto;text-align:center;}
 
     /* LIGHTBOX */
     #lightbox{
@@ -118,6 +119,53 @@
 
     /* Fade in content setelah masuk */
     #content{opacity:0;transition:1s}
+    
+        /* Section mempelai – elegan */
+    #mempelai{
+      background:linear-gradient(to bottom, #ffffffcc, #ffffffee), url("img/bg-mempelai.jpg") center/cover;
+      text-align:center;
+    }
+    
+    /* Section acara – timeline clean */
+    #acara .event{
+      background:#fff;
+      border-left:4px solid var(--accent);
+      padding:12px;
+      border-radius:8px;
+    }
+    
+    /* Section galeri – grid rapi */
+    #galeri .gallery img{
+      width:calc(50% - 6px);
+      border-radius:12px;
+      cursor:pointer;
+      transition:.2s;
+    }
+    #galeri .gallery img:hover{
+      transform:scale(1.05);
+    }
+    
+    /* Section lokasi – map full width */
+    #lokasi iframe{
+      width:100%!important;
+      height:320px!important;
+      border-radius:12px;
+    }
+    
+    /* Section ucapan – bersih */
+    #ucapan{
+      background:#ffffffbb;
+      backdrop-filter:blur(4px);
+    }
+    
+    /* Section penutup */
+    #penutup{
+      text-align:center;
+      padding:60px 20px;
+      background:#222;
+      color:#fff;
+    }
+
   </style>
 </head>
 <body>
@@ -167,7 +215,7 @@
   
       <div class="grid">
         <section>
-          <div id="mempelai" class="card">
+          <div id="mempelai" class="card section">
             <h3>Mempelai</h3>
             <div class="mempelai">
               <img id="fotoPria" class="avatar" src="https://via.placeholder.com/200x200?text=Pria" alt="">
@@ -184,7 +232,7 @@
             </div>
           </div>
   
-          <div id="acara" class="card">
+          <div id="acara" class="card section">
             <h3>Acara</h3>
             <div class="timeline">
               <div class="event">
@@ -198,7 +246,7 @@
             </div>
           </div>
   
-          <div id="galeri" class="card">
+          <div id="galeri" class="card section">
             <h3>Galeri</h3>
             <div class="gallery">
               <img onclick="openLightbox(this.src)" src="https://via.placeholder.com/600x400?text=Photo+1">
@@ -208,7 +256,7 @@
             </div>
           </div>
   
-          <div id="ucapan" class="card">
+          <div id="ucapan" class="card section">
             <h3>Ucapan & RSVP</h3>
             <!-- area form kamu tetap sama -->
             <!-- ... (tidak diubah) ... -->
@@ -219,7 +267,7 @@
         </section>
   
         <aside>
-          <div id="lokasi" class="card">
+          <div id="lokasi" class="card section">
             <h3>Lokasi</h3>
             <div class="map">
               <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7907.575432456785!2d111.457086!3d-7.705915!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7997f38662032d%3A0x4bd569fb81c8a6b7!2sWarung%20Rujak%20Bu%20Mis!5e0!3m2!1sid!2sid!4v1762446860336!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
