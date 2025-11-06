@@ -59,6 +59,7 @@
       cursor:pointer;
     ">Masuk</button>
   </div>
+  <div id="content" style="display:none">
   <header>
     <div class="container">
       <h1 id="pageTitle">[Nama Mempelai]</h1>
@@ -72,131 +73,131 @@
       </nav>
     </div>
   </header>
-
-  <main class="container">
-    <section class="hero">
-      <div class="cover card">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <h2 id="headline">Kepada: <span id="kepadaText">Tamu Terhormat</span></h2>
-            <p class="lead">Dengan hormat, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
-          </div>
-          <div style="text-align:right">
-            <small id="dateSmall">Sabtu, 01 Januari 2026</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <div class="grid">
-      <section>
-        <div id="mempelai" class="card">
-          <h3>Mempelai</h3>
-          <div class="mempelai">
-            <img id="fotoPria" class="avatar" src="https://via.placeholder.com/200x200?text=Pria" alt="Foto Mempelai Pria">
-            <div class="meta">
-              <strong id="namaPria">Nama Pria</strong>
-              <div><small id="ketPria">Putra dari Bapak X & Ibu Y</small></div>
+  <div id="content" style="display:none">
+    <main class="container">
+      <section class="hero">
+        <div class="cover card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <h2 id="headline">Kepada: <span id="kepadaText">Tamu Terhormat</span></h2>
+              <p class="lead">Dengan hormat, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
             </div>
-            <div style="margin-left:12px"></div>
-            <img id="fotoWanita" class="avatar" src="https://via.placeholder.com/200x200?text=Wanita" alt="Foto Mempelai Wanita">
-            <div class="meta">
-              <strong id="namaWanita">Nama Wanita</strong>
-              <div><small id="ketWanita">Putri dari Bapak A & Ibu B</small></div>
+            <div style="text-align:right">
+              <small id="dateSmall">Sabtu, 01 Januari 2026</small>
             </div>
-          </div>
-        </div>
-
-        <div id="acara" class="card" style="margin-top:12px">
-          <h3>Acara</h3>
-          <div class="timeline">
-            <div class="event">
-              <strong>Akad Nikah</strong>
-              <div><small id="akadDate">Minggu, 10 Januari 2026 — 09:00 WIB</small></div>
-            </div>
-            <div class="event">
-              <strong>Resepsi</strong>
-              <div><small id="resepsiDate">Minggu, 10 Januari 2026 — 11:00 WIB</small></div>
-            </div>
-          </div>
-        </div>
-
-        <div id="galeri" class="card" style="margin-top:12px">
-          <h3>Galeri</h3>
-          <div class="gallery">
-            <img src="https://via.placeholder.com/600x400?text=Photo+1" alt="photo1">
-            <img src="https://via.placeholder.com/600x400?text=Photo+2" alt="photo2">
-            <img src="https://via.placeholder.com/600x400?text=Photo+3" alt="photo3">
-            <img src="https://via.placeholder.com/600x400?text=Photo+4" alt="photo4">
-          </div>
-        </div>
-
-        <div id="ucapan" class="card" style="margin-top:12px">
-          <h3>Ucapan & RSVP</h3>
-          <form id="rsvpForm">
-            <input type="text" id="guestName" placeholder="Nama lengkap" required>
-            <input type="text" id="guestFrom" placeholder="Kota (mis: Bandung)" required>
-            <select id="attendance" required>
-              <option value="">Pilih kehadiran</option>
-              <option value="Hadir">Hadir</option>
-              <option value="Tidak Hadir">Tidak Hadir</option>
-            </select>
-            <textarea id="message" rows="3" placeholder="Ucapan (opsional)"></textarea>
-            <button type="submit">Kirim RSVP</button>
-          </form>
-          <div style="margin-top:8px">
-            <small>Catatan: Data RSVP disimpan lokal di browser. Untuk menyimpan ke server, ganti variabel <code>RSVP_ENDPOINT</code> di script.</small>
-          </div>
-          <div style="margin-top:8px">
-            <button id="downloadRsvps">Download Data RSVP (CSV)</button>
-          </div>
-          <div style="margin-top:8px">
-            <h4>Rekening / Kado</h4>
-            <div><strong>BCA</strong> - 1234567890 a.n. Nama Mempelai</div>
           </div>
         </div>
       </section>
-
-      <aside>
-        <div id="lokasi" class="card">
-          <h3>Lokasi</h3>
-          <div class="map" id="mapWrap">
-            <!-- Ganti src iframe di bawah dengan link Google Maps lokasi kamu -->
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.792880512832!2d111.4538887!3d-7.7053619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7997f38662032d%3A0x4bd569fb81c8a6b7!2sWarung%20Rujak%20Bu%20Mis!5e0!3m2!1sid!2sid!4v1762408294472!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  
+      <div class="grid">
+        <section>
+          <div id="mempelai" class="card">
+            <h3>Mempelai</h3>
+            <div class="mempelai">
+              <img id="fotoPria" class="avatar" src="https://via.placeholder.com/200x200?text=Pria" alt="Foto Mempelai Pria">
+              <div class="meta">
+                <strong id="namaPria">Nama Pria</strong>
+                <div><small id="ketPria">Putra dari Bapak X & Ibu Y</small></div>
+              </div>
+              <div style="margin-left:12px"></div>
+              <img id="fotoWanita" class="avatar" src="https://via.placeholder.com/200x200?text=Wanita" alt="Foto Mempelai Wanita">
+              <div class="meta">
+                <strong id="namaWanita">Nama Wanita</strong>
+                <div><small id="ketWanita">Putri dari Bapak A & Ibu B</small></div>
+              </div>
+            </div>
           </div>
-          <div style="margin-top:8px">
-            <a id="openMaps" href="#" target="_blank">Buka di Google Maps</a>
+  
+          <div id="acara" class="card" style="margin-top:12px">
+            <h3>Acara</h3>
+            <div class="timeline">
+              <div class="event">
+                <strong>Akad Nikah</strong>
+                <div><small id="akadDate">Minggu, 10 Januari 2026 — 09:00 WIB</small></div>
+              </div>
+              <div class="event">
+                <strong>Resepsi</strong>
+                <div><small id="resepsiDate">Minggu, 10 Januari 2026 — 11:00 WIB</small></div>
+              </div>
+            </div>
           </div>
-        </div>
-
-        <div class="card" style="margin-top:12px;text-align:center">
-          <h4>Musik (opsional)</h4>
-          <audio id="bgm" autoplay loop muted>
-            <source src="music/background.mp3" type="audio/mpeg">
-          </audio>
-          <button onclick="document.getElementById('bgm').play()">Play Musik</button>
-          <button onclick="document.getElementById('bgm').pause()">Pause</button>
-          <script>
-            // Unmute otomatis setelah user tap layar
-            document.addEventListener('click', () => {
-              document.getElementById('bgm').muted = false;
-            }, { once: true });
-          </script>
-        </div>
-
-        <div class="card" style="margin-top:12px;text-align:center">
-          <h4>Detail Cepat</h4>
-          <div><small id="quickDate">10 Jan 2026</small></div>
-          <div><small id="quickPlace">Gedung Contoh, Bandung</small></div>
-        </div>
-      </aside>
-    </div>
-
-    <footer>
-      <small>Terima kasih atas doa dan kehadiran Anda.</small>
-    </footer>
-  </main>
-
+  
+          <div id="galeri" class="card" style="margin-top:12px">
+            <h3>Galeri</h3>
+            <div class="gallery">
+              <img src="https://via.placeholder.com/600x400?text=Photo+1" alt="photo1">
+              <img src="https://via.placeholder.com/600x400?text=Photo+2" alt="photo2">
+              <img src="https://via.placeholder.com/600x400?text=Photo+3" alt="photo3">
+              <img src="https://via.placeholder.com/600x400?text=Photo+4" alt="photo4">
+            </div>
+          </div>
+  
+          <div id="ucapan" class="card" style="margin-top:12px">
+            <h3>Ucapan & RSVP</h3>
+            <form id="rsvpForm">
+              <input type="text" id="guestName" placeholder="Nama lengkap" required>
+              <input type="text" id="guestFrom" placeholder="Kota (mis: Bandung)" required>
+              <select id="attendance" required>
+                <option value="">Pilih kehadiran</option>
+                <option value="Hadir">Hadir</option>
+                <option value="Tidak Hadir">Tidak Hadir</option>
+              </select>
+              <textarea id="message" rows="3" placeholder="Ucapan (opsional)"></textarea>
+              <button type="submit">Kirim RSVP</button>
+            </form>
+            <div style="margin-top:8px">
+              <small>Catatan: Data RSVP disimpan lokal di browser. Untuk menyimpan ke server, ganti variabel <code>RSVP_ENDPOINT</code> di script.</small>
+            </div>
+            <div style="margin-top:8px">
+              <button id="downloadRsvps">Download Data RSVP (CSV)</button>
+            </div>
+            <div style="margin-top:8px">
+              <h4>Rekening / Kado</h4>
+              <div><strong>BCA</strong> - 1234567890 a.n. Nama Mempelai</div>
+            </div>
+          </div>
+        </section>
+  
+        <aside>
+          <div id="lokasi" class="card">
+            <h3>Lokasi</h3>
+            <div class="map" id="mapWrap">
+              <!-- Ganti src iframe di bawah dengan link Google Maps lokasi kamu -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.792880512832!2d111.4538887!3d-7.7053619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7997f38662032d%3A0x4bd569fb81c8a6b7!2sWarung%20Rujak%20Bu%20Mis!5e0!3m2!1sid!2sid!4v1762408294472!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div style="margin-top:8px">
+              <a id="openMaps" href="#" target="_blank">Buka di Google Maps</a>
+            </div>
+          </div>
+  
+          <div class="card" style="margin-top:12px;text-align:center">
+            <h4>Musik (opsional)</h4>
+            <audio id="bgm" autoplay loop muted>
+              <source src="music/background.mp3" type="audio/mpeg">
+            </audio>
+            <button onclick="document.getElementById('bgm').play()">Play Musik</button>
+            <button onclick="document.getElementById('bgm').pause()">Pause</button>
+            <script>
+              // Unmute otomatis setelah user tap layar
+              document.addEventListener('click', () => {
+                document.getElementById('bgm').muted = false;
+              }, { once: true });
+            </script>
+          </div>
+  
+          <div class="card" style="margin-top:12px;text-align:center">
+            <h4>Detail Cepat</h4>
+            <div><small id="quickDate">10 Jan 2026</small></div>
+            <div><small id="quickPlace">Gedung Contoh, Bandung</small></div>
+          </div>
+        </aside>
+      </div>
+  
+      <footer>
+        <small>Terima kasih atas doa dan kehadiran Anda.</small>
+      </footer>
+    </main>
+  </div>
   <script>
     /***********************************************
      * CONFIG - ganti nilai berikut sesuai keperluan
