@@ -1,327 +1,280 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Undangan Pernikahan - [Nama Mempelai]</title>
+  <title>Undangan Pernikahan - Lusiana & Agus</title>
+
   <style>
-    :root{--accent:#8b5cf6;--muted:#777;--bg:#faf9f8}
-    *{box-sizing:border-box}
-    body{font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0;background:var(--bg);color:#111}
-    header{background:linear-gradient(90deg,rgba(0,0,0,.03),rgba(255,255,255,.02));padding:28px 18px;text-align:center}
-    .container{max-width:920px;margin:20px auto;padding:0 18px}
-    .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
-    .hero .cover{padding:28px;border-radius:14px;background:#fff;box-shadow:0 6px 18px rgba(11,15,30,0.06)}
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
-    nav{display:flex;gap:10px;justify-content:center;margin-top:12px}
-    nav a{padding:8px 12px;border-radius:10px;text-decoration:none;color:var(--accent);font-weight:600}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
-    .card {width: 90%;max-width: 500px;margin: 18px auto;}
-    .mempelai{display:flex;gap:12px;align-items:center}
-    .avatar{width:88px;height:88px;border-radius:10px;object-fit:cover}
-    .meta small{color:var(--muted)}
-    .timeline{display:flex;flex-direction:column;gap:10px}
-    .event{padding:12px;border-radius:10px;border:1px solid #f0f0f0}
-    .map{height:260px;border-radius:10px;overflow:hidden}
-    .gallery{display:flex;gap:8px;flex-wrap:wrap}
-    .gallery img{width:calc(50% - 8px);border-radius:8px}
-    form input,form textarea,form button{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e6}
-    form button{background:var(--accent);color:white;border:0;font-weight:700}
-    footer{text-align:center;color:var(--muted);margin:28px 0}
-    @media (max-width:880px){.grid{grid-template-columns:1fr}.gallery img{width:100%}}
-    #cover {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    background: #000;
-    color: #fff;
-    padding: 20px;
-    animation:fadein 1.2s ease forwards;
+    :root{--accent:#8b5cf6;--muted:#777;--bg:#fafafa}
+
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      font-family:Inter, Arial, sans-serif;
+      background:var(--bg) url("img/bg.jpg") center/cover fixed no-repeat;
+      color:#111;
+      overflow-x:hidden;
     }
-    
-    #cover button {
-      padding: 12px 24px;
-      background: #fff;
-      color: #000;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
+
+    /* COVER ------------------------------------------- */
+    #cover{
+      width:100%;
+      height:100vh;
+      background:rgba(0,0,0,0.45) url("img/cover.jpg") center/cover no-repeat;
+      background-blend-mode:darken;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:#fff;
+      padding:20px;
+      opacity:0;
+      animation:fadeInPage 1s forwards;
+    }
+    #cover h1{font-size:38px;margin:4px 0}
+    #cover button{
+      margin-top:14px;
+      padding:12px 28px;
+      background:#fff;
+      border:0;border-radius:8px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.25s;
+    }
+    #cover button:hover{transform:scale(1.05)}
+
+    @keyframes fadeInPage{
+      from{opacity:0;}
+      to{opacity:1;}
+    }
+
+    /* MAIN WRAPPER ------------------------------------ */
+    #content{display:none;animation:fadeInPage 1s forwards}
+
+    header{
+      background:rgba(255,255,255,0.6);
+      backdrop-filter:blur(6px);
+      padding:22px;
+      text-align:center;
+      position:sticky;top:0;
+      z-index:10;
+    }
+    nav{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:6px}
+    nav a{
+      padding:6px 10px;
+      border-radius:8px;
+      text-decoration:none;
+      color:var(--accent);
+      font-weight:600;
+    }
+
+    .container{max-width:900px;margin:auto;padding:20px}
+
+    .card{
+      background:rgba(255,255,255,0.85);
+      backdrop-filter:blur(6px);
+      border-radius:12px;
+      padding:18px;
+      margin:18px 0;
+      box-shadow:0 2px 10px rgba(0,0,0,0.08);
+      opacity:0;
+      transform:translateY(40px);
+      transition:0.8s;
+    }
+    .card.reveal{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    /* COUNTDOWN */
+    #countdown{
+      text-align:center;
+      font-size:18px;
+      font-weight:600;
+      margin-top:8px;
+    }
+
+    /* GALERI */
+    .gallery{display:flex;flex-wrap:wrap;gap:8px}
+    .gallery img{
+      width:calc(50% - 8px);
+      border-radius:8px;
+      cursor:pointer;
+      transition:0.2s;
+    }
+    .gallery img:hover{transform:scale(1.03)}
+    @media(max-width:660px){.gallery img{width:100%}}
+
+    /* LIGHTBOX */
+    #lightbox{
+      position:fixed;
+      top:0;left:0;width:100%;height:100%;
+      background:rgba(0,0,0,0.8);
+      display:none;
+      align-items:center;justify-content:center;
+      z-index:999;
+    }
+    #lightbox img{
+      max-width:90%;max-height:90%;
+      border-radius:10px;
+    }
+
+    /* BUNGA JATUH (PETALES) */
+    .petal{
+      position:fixed;
+      top:-10px;
+      width:12px;height:12px;
+      background:#ffb7c5;
+      border-radius:50%;
+      opacity:0.8;
+      animation:fall 8s linear infinite;
+      pointer-events:none;
+    }
+    @keyframes fall{
+      from{transform:translateY(-10px) rotate(0deg)}
+      to{transform:translateY(110vh) rotate(220deg)}
     }
   </style>
 </head>
 <body>
-  
-  <div id="cover">
-    <h2>Undangan Pernikahan</h2>
-    <h1 style="margin:0">Lusiana & Agus</h1>
-    <p style="margin:10px 0 20px">Kepada Yth. Bapak/Ibu/Saudara/i</p>
-    <button onclick="masukUndangan()">Buka Undangan</button>
-  </div>
-  
-  <div id="content" style="display:none">
-    <header>
-      <div class="container">
-        <h1 id="pageTitle">[Nama Mempelai]</h1>
-        <p class="lead" id="greeting">Undangan pernikahan</p>
-        <nav>
-          <a href="#mempelai">Mempelai</a>
-          <a href="#acara">Acara</a>
-          <a href="#lokasi">Lokasi</a>
-          <a href="#galeri">Galeri</a>
-          <a href="#ucapan">Ucapan</a>
-        </nav>
+
+<!-- ============ COVER ============ -->
+<div id="cover">
+  <h2>Undangan Pernikahan</h2>
+  <h1>Lusiana & Agus</h1>
+  <p>Kepada Yth. Bapak/Ibu/Saudara/i</p>
+  <button onclick="masukUndangan()">Buka Undangan</button>
+</div>
+
+<!-- MUSIC -->
+<audio id="bgm" loop>
+  <source src="music/background.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ============ CONTENT ============ -->
+<div id="content">
+  <header>
+    <h2>Lusiana & Agus</h2>
+    <div id="countdown">Menghitung...</div>
+    <nav>
+      <a href="#mempelai">Mempelai</a>
+      <a href="#acara">Acara</a>
+      <a href="#lokasi">Lokasi</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#ucapan">Ucapan</a>
+    </nav>
+  </header>
+
+  <div class="container">
+
+    <div class="card" id="mempelai">
+      <h3>Mempelai</h3>
+      <p>Agus & Lusiana</p>
+    </div>
+
+    <div class="card" id="acara">
+      <h3>Acara</h3>
+      <p>Akad: Sabtu, 13 Des 2025 — 08:00 WIB</p>
+      <p>Resepsi: Sabtu, 13 Des 2025 — 10:00 WIB</p>
+    </div>
+
+    <div class="card" id="lokasi">
+      <h3>Lokasi</h3>
+      <iframe style="width:100%;height:240px;border:0;border-radius:10px"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.792880512832!2d111.4538887!3d-7.7053619">
+      </iframe>
+      <div style="text-align:center;margin-top:6px">
+        <a href="https://maps.app.goo.gl/bokj2txArMbWqtmu7" target="_blank">Buka di Google Maps</a>
       </div>
-    </header>
-    <main class="container">
-      <section class="hero">
-        <div class="cover card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <h2 id="headline">Kepada: <span id="kepadaText">Tamu Terhormat</span></h2>
-              <p class="lead">Dengan hormat, kami mengundang Anda untuk hadir pada acara pernikahan kami.</p>
-            </div>
-            <div style="text-align:right">
-              <small id="dateSmall">Sabtu, 13 Desember 2025</small>
-            </div>
-          </div>
-        </div>
-      </section>
-  
-      <div class="grid">
-        <section>
-          <div id="mempelai" class="card">
-            <h3>Mempelai</h3>
-            <div class="mempelai">
-              <img id="fotoPria" class="avatar" src="https://via.placeholder.com/200x200?text=Pria" alt="Foto Mempelai Pria">
-              <div class="meta">
-                <strong id="namaPria">Agus Pabrianto</strong>
-                <div><small id="ketPria">Putra dari Bapak Sukadi & Ibu Sumini</small></div>
-              </div>
-              <div style="margin-left:12px"></div>
-              <img id="fotoWanita" class="avatar" src="https://via.placeholder.com/200x200?text=Wanita" alt="Foto Mempelai Wanita">
-              <div class="meta">
-                <strong id="namaWanita">Lusiana Admasari</strong>
-                <div><small id="ketWanita">Putri dari Bapak Pamuji & Ibu Mistirah</small></div>
-              </div>
-            </div>
-          </div>
-  
-          <div id="acara" class="card" style="margin-top:12px">
-            <h3>Acara</h3>
-            <div class="timeline">
-              <div class="event">
-                <strong>Akad Nikah</strong>
-                <div><small id="akadDate">Sabtu, 13 Desember 2025 — 08:00 WIB</small></div>
-              </div>
-              <div class="event">
-                <strong>Resepsi</strong>
-                <div><small id="resepsiDate">Sabtu, 13 Desember 2025 — 10:00 WIB</small></div>
-              </div>
-            </div>
-          </div>
-  
-          <div id="galeri" class="card" style="margin-top:12px">
-            <h3>Galeri</h3>
-            <div class="gallery">
-              <img src="https://via.placeholder.com/600x400?text=Photo+1" alt="photo1">
-              <img src="https://via.placeholder.com/600x400?text=Photo+2" alt="photo2">
-              <img src="https://via.placeholder.com/600x400?text=Photo+3" alt="photo3">
-              <img src="https://via.placeholder.com/600x400?text=Photo+4" alt="photo4">
-            </div>
-          </div>
-  
-          <div id="ucapan" class="card" style="margin-top:12px">
-            <h3>Ucapan & RSVP</h3>
-            <form id="rsvpForm">
-              <input type="text" id="guestName" placeholder="Nama lengkap" required>
-              <input type="text" id="guestFrom" placeholder="Kota (mis: Bandung)" required>
-              <select id="attendance" required>
-                <option value="">Pilih kehadiran</option>
-                <option value="Hadir">Hadir</option>
-                <option value="Tidak Hadir">Tidak Hadir</option>
-              </select>
-              <textarea id="message" rows="3" placeholder="Ucapan (opsional)"></textarea>
-              <button type="submit">Kirim RSVP</button>
-            </form>
-            <div style="margin-top:8px">
-              <small>Catatan: Data RSVP disimpan lokal di browser. Untuk menyimpan ke server, ganti variabel <code>RSVP_ENDPOINT</code> di script.</small>
-            </div>
-            <div style="margin-top:8px">
-              <button id="downloadRsvps">Download Data RSVP (CSV)</button>
-            </div>
-            <div style="margin-top:8px">
-              <h4>Rekening / Kado</h4>
-              <div><strong>BRI</strong> - 0000000000 a.n. Lusiana</div>
-            </div>
-          </div>
-        </section>
-  
-        <aside>
-          <div id="lokasi" class="card">
-            <h3>Lokasi</h3>
-            <div class="map" id="mapWrap">
-              <!-- Ganti src iframe di bawah dengan link Google Maps lokasi kamu -->
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.792880512832!2d111.4538887!3d-7.7053619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7997f38662032d%3A0x4bd569fb81c8a6b7!2sWarung%20Rujak%20Bu%20Mis!5e0!3m2!1sid!2sid!4v1762408294472!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <div style="margin-top:8px">
-              <a id="openMaps" href="#" target="_blank">Buka di Google Maps</a>
-            </div>
-          </div>
-  
-          <div class="card" style="margin-top:12px;text-align:center">
-            <h4>Musik (opsional)</h4>
-            <audio id="bgm" autoplay loop muted>
-              <source src="music/background.mp3" type="audio/mpeg">
-            </audio>
-            <button onclick="document.getElementById('bgm').play()">Play Musik</button>
-            <button onclick="document.getElementById('bgm').pause()">Pause</button>
-            <script>
-              // Unmute otomatis setelah user tap layar
-              document.addEventListener('click', () => {
-                document.getElementById('bgm').muted = false;
-              }, { once: true });
-            </script>
-          </div>
-  
-          <div class="card" style="margin-top:12px;text-align:center">
-            <h4>Waktu & Lokasi Acara</h4>
-            <div><small id="quickDate">13 Des 2025</small></div>
-            <div><small id="quickPlace">Kediaman Mempelai Wanita</small></div>
-          </div>
-        </aside>
+    </div>
+
+    <div class="card" id="galeri">
+      <h3>Galeri</h3>
+      <div class="gallery">
+        <img onclick="openLightbox(this.src)" src="img/g1.jpg">
+        <img onclick="openLightbox(this.src)" src="img/g2.jpg">
+        <img onclick="openLightbox(this.src)" src="img/g3.jpg">
+        <img onclick="openLightbox(this.src)" src="img/g4.jpg">
       </div>
-  
-      <footer>
-        <small>Terima kasih atas doa dan kehadiran Anda.</small>
-      </footer>
-    </main>
+    </div>
+
+    <div class="card" id="ucapan">
+      <h3>Ucapan & RSVP</h3>
+      <p>Simpan data ke localStorage / bisa dihubungkan ke server.</p>
+      <!-- kalau mau lanjut nanti tinggal tambahin form lama -->
+    </div>
+
+    <footer style="text-align:center;margin:20px 0;color:#555">
+      Terima kasih
+    </footer>
   </div>
-  <script>
-    /***********************************************
-     * CONFIG - ganti nilai berikut sesuai keperluan
-     ***********************************************/
-    const CONFIG = {
-      title: "Assalamu'alaikum Warahmatullah",
-      namaPria: 'Agus',
-      namaWanita: 'Lusiana',
-      fotoPria: 'https://via.placeholder.com/400x400?text=Hadi',
-      fotoWanita: 'https://via.placeholder.com/400x400?text=Ayu',
-      akad: 'Sabtu, 13 Desember 2025 — 08:00 WIB',
-      resepsi: 'Sabtu, 13 Desember 2025 — 10:00 WIB',
-      tanggalRingkas: '13 Des 2025',
-      tempatRingkas: 'Ds.Purworejo RT 08 RW 03, Kec. Nguntoronadi - Magetan',
-      mapsLink: 'https://maps.app.goo.gl/bokj2txArMbWqtmu7',
-      musicUrl: '', // taruh link mp3 jika mau
-      bankInfo: 'BRI - 00000000 a.n. Lusiana',
-      RSVP_ENDPOINT: '' // Jika mau kirim ke server: masukkan URL API endpoint di sini (Google Apps Script / Formspree / servermu sendiri)
-    };
+</div>
 
-    // Inisialisasi konten dari CONFIG
-    document.getElementById('pageTitle').textContent = CONFIG.title;
-    document.getElementById('namaPria').textContent = CONFIG.namaPria;
-    document.getElementById('namaWanita').textContent = CONFIG.namaWanita;
-    document.getElementById('fotoPria').src = CONFIG.fotoPria;
-    document.getElementById('fotoWanita').src = CONFIG.fotoWanita;
-    document.getElementById('akadDate').textContent = CONFIG.akad;
-    document.getElementById('resepsiDate').textContent = CONFIG.resepsi;
-    document.getElementById('quickDate').textContent = CONFIG.tanggalRingkas;
-    document.getElementById('quickPlace').textContent = CONFIG.tempatRingkas;
-    document.getElementById('mapFrame').src = CONFIG.mapsLink.replace('/maps','/maps') + '&output=embed';
-    document.getElementById('openMaps').href = CONFIG.mapsLink;
-    document.getElementById('bgMusic').querySelector('source').src = CONFIG.musicUrl;
-    document.querySelector('#ucapan .card');
-    document.querySelector('#ucapan');
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()">
+  <img id="lightImg">
+</div>
 
-    // Parsing query string untuk menampilkan "kepada". Contoh: ?templatecoba=1/kepada:Budi%20dan%20Ani-Bandung
-    (function parseKepada(){
-      const q = decodeURIComponent(location.search + location.hash);
-      // cari pola 'kepada:...'
-      const match = q.match(/kepada:([^\-&?]+)/i);
-      if(match && match[1]){
-        const val = match[1].replace(/\+/g,' ');
-        document.getElementById('kepadaText').textContent = val;
-        document.getElementById('headline').style.fontSize='20px';
-      }
-    })();
+<script>
+/* ==== MASUK UNDG + MUSIK ==== */
+function masukUndangan(){
+  document.getElementById("cover").style.display="none";
+  document.getElementById("content").style.display="block";
 
-    // RSVP handler: default menyimpan ke localStorage. Jika RSVP_ENDPOINT diisi, script akan mengirim POST ke URL tersebut.
-    const form = document.getElementById('rsvpForm');
-    const STORAGE_KEY = 'undangan_rsvps';
-    form.addEventListener('submit', async (e)=>{
-      e.preventDefault();
-      const data = {
-        name: document.getElementById('guestName').value.trim(),
-        from: document.getElementById('guestFrom').value.trim(),
-        attendance: document.getElementById('attendance').value,
-        message: document.getElementById('message').value.trim(),
-        time: new Date().toISOString()
-      };
+  const bgm=document.getElementById("bgm");
+  bgm.muted=false;
+  bgm.play().catch(()=>{});
+}
 
-      // Simpan lokal
-      const existing = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      existing.push(data);
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(existing));
+/* ==== COUNTDOWN ==== */
+const target = new Date("2025-12-13T08:00:00").getTime();
+setInterval(()=>{
+  let now = Date.now();
+  let sisa = target-now;
+  if(sisa <= 0){
+    document.getElementById("countdown").innerHTML="Hari ini!";
+    return;
+  }
+  let d = Math.floor(sisa/(1000*60*60*24));
+  let h = Math.floor((sisa%(1000*60*60*24))/(1000*60*60));
+  let m = Math.floor((sisa%(1000*60*60))/(1000*60));
+  let s = Math.floor((sisa%(1000*60))/1000);
+  document.getElementById("countdown").innerHTML= `${d}h ${h}j ${m}m ${s}d`;
+},1000);
 
-      // Jika endpoint diset, kirim POST
-      if(CONFIG.RSVP_ENDPOINT){
-        try{
-          await fetch(CONFIG.RSVP_ENDPOINT, {
-            method: 'POST',
-            headers: {'Content-Type':'application/json'},
-            body: JSON.stringify(data)
-          });
-        }catch(err){
-          console.warn('Gagal kirim ke endpoint:', err);
-        }
-      }
-
-      alert('Terima kasih, RSVP Anda telah tercatat.');
-      form.reset();
-    });
-
-    // Download CSV
-    document.getElementById('downloadRsvps').addEventListener('click', ()=>{
-      const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
-      if(!data.length){return alert('Belum ada data RSVP.');}
-      const rows = [Object.keys(data[0]).join(',')].concat(data.map(r=>Object.values(r).map(v=>`"${String(v).replace(/"/g,'""')}"`).join(',')));
-      const csv = rows.join('\n');
-      const blob = new Blob([csv], {type:'text/csv'});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement('a'); a.href = url; a.download = 'rsvps.csv'; a.click(); URL.revokeObjectURL(url);
-    });
-
-    // Play toggle musik
-    document.getElementById('playToggle').addEventListener('click', ()=>{
-      const audio = document.getElementById('bgMusic');
-      if(audio.paused) audio.play(); else audio.pause();
-    });
-
-    // Jika URL hash menyertakan data awal (mis: #kepada:Nama), parse juga
-    (function parseHash(){
-      const h = decodeURIComponent(location.hash);
-      const m = h.match(/kepada:([^\-]+)/i);
-      if(m && m[1]) document.getElementById('kepadaText').textContent = m[1];
-    })();
-
-    // Catatan cepat untuk deploy: simpan file ini sebagai index.html, lalu host di GitHub Pages / Netlify / Vercel / Webhost biasa.
-  </script>
-  <audio id="bgm" autoplay loop muted>
-    <source src="music/background.mp3" type="audio/mpeg">
-  </audio>
-  <script>
-    function masukUndangan() {
-    document.getElementById("cover").style.display = "none";       // tutup halaman cover
-    document.getElementById("content").style.display = "block";    // tampilkan undangan
-    const bgm = document.getElementById("bgm");
-    bgm.muted = false;  // aktifkan suara
-    bgm.play();
+/* ==== REVEAL ON SCROLL ==== */
+function reveal(){
+  document.querySelectorAll(".card").forEach(sec=>{
+    let top = sec.getBoundingClientRect().top;
+    if(top < window.innerHeight - 60){
+      sec.classList.add("reveal");
     }
-  </script>
+  })
+}
+window.addEventListener("scroll", reveal);
+window.addEventListener("load", reveal);
+
+/* ==== LIGHTBOX ==== */
+function openLightbox(src){
+  document.getElementById("lightImg").src = src;
+  document.getElementById("lightbox").style.display="flex";
+}
+function closeLightbox(){
+  document.getElementById("lightbox").style.display="none";
+}
+
+/* ==== BUNGA JATUH ==== */
+function bungaJatuh(){
+  const petal=document.createElement("div");
+  petal.classList.add("petal");
+  petal.style.left=Math.random()*100+"vw";
+  petal.style.animationDuration=(5+Math.random()*5)+"s";
+  document.body.appendChild(petal);
+  setTimeout(()=>petal.remove(),10000);
+}
+setInterval(bungaJatuh,300);
+</script>
+
 </body>
 </html>
